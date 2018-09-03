@@ -57,5 +57,5 @@ if __name__ == "__main__":
     for t_itr in range(t):
         n = int(input())
         result = solve1(n)
-        # result = list(solve2(n))[0]
+        # result = solve2(n)
         print(result)
