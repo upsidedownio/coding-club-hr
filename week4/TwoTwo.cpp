@@ -15,7 +15,7 @@ int main(){
 
     int result;
 
-    String_Test="22222222222222222222";
+    String_Test="24256";
 
     result = twoTwo(String_Test);
 
@@ -47,8 +47,19 @@ int twoTwo(string a){
                 break;
             }
 
+            cout<<"Start = ";
+            for (int i2 = i0; i2 < i1 + 1; i2++) {
+                cout<<Str_Buff[i2]-48 ;
+            }
+
+            cout<<endl;
+
 
             while (true) {
+
+                if (Str_Buff[i1] % 2 == 1) {
+                    break;
+                }
 
                 for (int i2 = i0; i2 < i1 + 1; i2++) {
                     INT_BetNum = Str_Buff[i2] - 48;
@@ -59,9 +70,15 @@ int twoTwo(string a){
                     }
                 }
 
+                for (int i2 = i0; i2 < i1 + 1; i2++) {
+                    cout<<Str_Buff[i2]-48 ;
+                }
+
+                cout<<endl;
+
                 INT_BuffSum = 0;
                 for (int i2 = i0; i2 < i1 + 1; i2++) {
-                    INT_BuffSum = INT_BuffSum + ((int) Str_Buff[i2] - 48);
+                    INT_BuffSum = INT_BuffSum + ( Str_Buff[i2] - 48);
                 }
                 //cout << "INT_BuffSum = " << INT_BuffSum << ", i0 = " << i0 << ", i1 = " << i1 << endl;
                 //cout<<"INT_BetNum = "<<INT_BetNum<<", "<<Str_Buff[i0+i2]<<", BuffNum = "<<INT_BuffNum<<endl;
@@ -69,9 +86,7 @@ int twoTwo(string a){
                     INT_Result++;
                     break;
                 }
-                if (Str_Buff[i1] % 2 == 1) {
-                    break;
-                }
+
             }
         }
     }
