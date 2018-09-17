@@ -15,7 +15,7 @@ int main(){
 
     int result;
 
-    String_Test="24256";
+    String_Test="24256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256242562425624256";
 
     result = twoTwo(String_Test);
 
@@ -47,40 +47,32 @@ int twoTwo(string a){
                 break;
             }
 
-            cout<<"Start = ";
-            for (int i2 = i0; i2 < i1 + 1; i2++) {
-                cout<<Str_Buff[i2]-48 ;
-            }
-
-            cout<<endl;
-
 
             while (true) {
 
                 if (Str_Buff[i1] % 2 == 1) {
                     break;
                 }
+                INT_BuffNum=0;
 
                 for (int i2 = i0; i2 < i1 + 1; i2++) {
                     INT_BetNum = Str_Buff[i2] - 48;
+
                     Str_Buff[i2] = ((INT_BetNum + INT_BuffNum) / 2) + 48;
-                    INT_BuffNum = 0;
                     if (INT_BetNum % 2 == 1) {
                         INT_BuffNum = 10;
                     }
+                    else{
+                        INT_BuffNum = 0;
+                    }
                 }
 
-                for (int i2 = i0; i2 < i1 + 1; i2++) {
-                    cout<<Str_Buff[i2]-48 ;
-                }
-
-                cout<<endl;
 
                 INT_BuffSum = 0;
                 for (int i2 = i0; i2 < i1 + 1; i2++) {
                     INT_BuffSum = INT_BuffSum + ( Str_Buff[i2] - 48);
                 }
-                //cout << "INT_BuffSum = " << INT_BuffSum << ", i0 = " << i0 << ", i1 = " << i1 << endl;
+                cout << "INT_BuffSum = " << INT_BuffSum << ", i0 = " << i0 << ", i1 = " << i1 << endl;
                 //cout<<"INT_BetNum = "<<INT_BetNum<<", "<<Str_Buff[i0+i2]<<", BuffNum = "<<INT_BuffNum<<endl;
                 if (INT_BuffSum == 1) {
                     INT_Result++;
