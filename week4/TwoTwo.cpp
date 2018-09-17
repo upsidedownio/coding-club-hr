@@ -2,30 +2,6 @@
 // Created by DongHoon Kim on 17/09/2018.
 //
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-int twoTwo(string a);
-
-int main(){
-
-    string String_Test;
-
-    int result;
-
-    String_Test="24256";
-
-    result = twoTwo(String_Test);
-
-    cout<<"Result = "<<result<<endl;
-
-    return 0;
-}
-
-
-
 int twoTwo(string a){
 
     int INT_Result, INT_BetNum;
