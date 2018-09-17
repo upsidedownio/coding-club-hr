@@ -15,7 +15,7 @@ int main(){
 
     int result;
 
-    String_Test="33579";
+    String_Test="22222222222222222222";
 
     result = twoTwo(String_Test);
 
@@ -29,38 +29,52 @@ int main(){
 int twoTwo(string a){
 
     int INT_Result, INT_BetNum;
+    int INT_BuffNum,INT_BuffSum;
+    string Str_Buff;
+
+    //Str_Buff=a;
 
     INT_Result=0;
 
-    for(int i0=0;i0<a.size();i0++){
-        for(int i1=i0;i1<a.size();i1++){
-            INT_BetNum = 0;
-            for(int i2=0;i2<(i1-i0+1);i2++){
-                INT_BetNum = INT_BetNum * 10 + (a[i2+i0]-48) ;
-                if(INT_BetNum==0){
-                    break;
-                }
+    for(int i0=0;i0<a.size();i0++) {
+        for (int i1 = i0; i1 < a.size(); i1++) {
+
+            for (int i2 = i0; i2 < i1 + 1; i2++) {
+                Str_Buff[i2] = a[i2];
             }
 
-            cout<<"i0 = "<<i0<<", i1 = "<<i1<<" Num = "<<INT_BetNum<<endl;
+            if(Str_Buff[i0]==48){
+                break;
+            }
 
-            while(true){
-                if(INT_BetNum%2!=0||INT_BetNum==0){
-                    break;
+
+            while (true) {
+
+                for (int i2 = i0; i2 < i1 + 1; i2++) {
+                    INT_BetNum = Str_Buff[i2] - 48;
+                    Str_Buff[i2] = ((INT_BetNum + INT_BuffNum) / 2) + 48;
+                    INT_BuffNum = 0;
+                    if (INT_BetNum % 2 == 1) {
+                        INT_BuffNum = 10;
+                    }
                 }
-                INT_BetNum=INT_BetNum/2;
-                if(INT_BetNum==1){
+
+                INT_BuffSum = 0;
+                for (int i2 = i0; i2 < i1 + 1; i2++) {
+                    INT_BuffSum = INT_BuffSum + ((int) Str_Buff[i2] - 48);
+                }
+                //cout << "INT_BuffSum = " << INT_BuffSum << ", i0 = " << i0 << ", i1 = " << i1 << endl;
+                //cout<<"INT_BetNum = "<<INT_BetNum<<", "<<Str_Buff[i0+i2]<<", BuffNum = "<<INT_BuffNum<<endl;
+                if (INT_BuffSum == 1) {
                     INT_Result++;
-                    cout<<"i0 = "<<i0<<", i1 = "<<i1<<" Result Num = "<<INT_Result<<endl;
-
+                    break;
+                }
+                if (Str_Buff[i1] % 2 == 1) {
                     break;
                 }
             }
-
         }
     }
-
-    //a.size();
 
     return INT_Result;
 }
