@@ -20,23 +20,23 @@ public class TwoTwo {
 		 */
 		int result = 0;
 		int inputStringSize = a.length();
-		// 2의 배수의 위치를 담을 리스트를 준비해준다.
-		List<Integer> indexOfTwo = new ArrayList<Integer>();
+		// 2의 배수의 위치를 담을 스텍을 준비해준다.
+		Stack<Integer> indexStack = new Stack<>(); 
 
-		// 입력 받은 숫자가 2의 배수이며 0이 아님을 체크하고 리스트에 담아준다.
+		// 입력 받은 숫자가 2의 배수이며 0이 아님을 체크하고 스텍에 담아준다.
 		for (int index = 0; index < inputStringSize; index++) {
 
 			int singleNum = Character.getNumericValue(a.charAt(index));
 
 			if (singleNum % 2 == 0 && singleNum != 0) {
-				indexOfTwo.add(index);
+				indexStack.push(index);
 			}
 
 		}
-
-		// 리스트에 담긴 인덱스 기준으로 앞의 숫자들을 잘라 2의 제곱수임을 확인해준다.
-		for (int i : indexOfTwo) {
-			String checkStr = a.substring(0, i + 1);
+		
+		// 스텍에 담긴 인덱스 기준으로 앞의 숫자들을 잘라 2의 제곱수임을 확인해준다.
+		while(!indexStack.isEmpty()) {
+			String checkStr = a.substring(0,indexStack.pop()+1);
 			int countPowerOfTwo = countingPowerOfTwo(checkStr);
 			result += countPowerOfTwo;
 		}
