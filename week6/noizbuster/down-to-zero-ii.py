@@ -12,13 +12,13 @@ cache[2] = 2
 def aliquots(N):
     output = []
     IV = math.ceil(math.sqrt(N))
-    for i in range(2, IV):
+    for i in range(2, N):
         if N % i is 0:
             output.append(max(i, N//i))
     output = list(set(output))
-    output.append(N-1)
+    # output.append(N-1)
     output.sort()
-    print('aliquots of', N, output)
+    # print('aliquots of', N, output)
     return output
 
 def findShortCut(N):
@@ -33,6 +33,10 @@ def findShortCut(N):
     if N in cache:
         # print('cache[', N, '] is', cache[N])
         return cache[N]
+    else:
+        for i in range(len(cache), N):
+            cache[i] = findShortCut(i)
+
     # IV = math.ceil(math.sqrt(N))
     # for i in range(IV, 1, -1):
     #     if N % i is 0:
@@ -55,7 +59,7 @@ def findShortCut(N):
             optimal = min(step, optimal)
             next = child
     cache[N] = optimal
-    print('cache[', N, '] is', optimal, 'from[', next, ']', cache[next])
+    # print('cache[', N, '] is', optimal, 'from[', next, ']', cache[next])
     return optimal
 
 
